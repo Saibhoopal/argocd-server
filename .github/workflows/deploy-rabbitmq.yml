@@ -1,15 +1,15 @@
 name: Deploy RabbitMQ via ArgoCD
 
-#on:
-#  repository_dispatch:
-#    types:
-#      - deploy-rabbitmq
-
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types:
+      - deploy-rabbitmq
+
+#on:
+#  workflow_dispatch:
+#  push:
+#    branches:
+#      - main
 
 jobs:
   deploy:

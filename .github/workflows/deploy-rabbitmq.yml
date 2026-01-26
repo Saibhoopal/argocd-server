@@ -1,9 +1,25 @@
 name: Deploy RabbitMQ via ArgoCD
 
+#on:
+#  repository_dispatch:
+#    types:
+#      - deploy-rabbitmq
+
 on:
-  repository_dispatch:
-    types:
-      - deploy-rabbitmq
+  workflow_dispatch:
+    inputs:
+      cluster:
+        description: "Target cluster"
+        required: true
+        type: choice
+        options:
+          - non-prod
+          - production
+
+      namespace:
+        description: "Target namespace"
+        required: true
+        type: string
 
 #on:
 #  workflow_dispatch:
